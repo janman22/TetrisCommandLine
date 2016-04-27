@@ -1,14 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this tEMPlate file, choose Tools | TEMPlates
- * and open the tEMPlate in the editor.
- */
-package tetris;
-
-/**
- *
- * @author janman22
- */
 public class Stones{
     static final char EMP = ' ';
     static final char FULL = '▣';
@@ -47,11 +36,12 @@ public class Stones{
     
     public static Field FillWithStone(Stones stone, Field field)
     {
+        int[] pos = stone.position;
         for(int iLine = 0; iLine < 4; iLine++){ 
             for(int iRow = 0; iRow < 4; iRow++){
-                if(field.field[iLine+stone.position[1]][iRow+stone.position[0]] == EMP)
+                if(field.field[iLine+pos[1]][iRow+pos[0]] == EMP)
                 {
-                field.field[iLine+stone.position[1]][iRow+stone.position[0]] = stone.form[iLine][iRow];
+                field.field[iLine+pos[1]][iRow+pos[0]] = stone.form[iLine][iRow];
                 }
                 else if(field.field[iLine+stone.position[1]+1][iRow+stone.position[0]] == FULL)
                 {
